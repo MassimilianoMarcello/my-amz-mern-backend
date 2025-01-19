@@ -45,7 +45,11 @@ app.use(
 );
 
 // use helmet
-app.use(helmet());
+app.use(
+    helmet({
+        contentSecurityPolicy: false,
+    })
+);
 
 // parses
 app.use(express.json());

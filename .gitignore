@@ -22,7 +22,7 @@ pids/
 
 # Build output
 build/
-dist/
+# dist/
 
 # dotenv environment variables file
 .env.local
