@@ -37,6 +37,8 @@ const allowedOrigins = process.env.CORS_ORIGINS
     ? process.env.CORS_ORIGINS.split(',')
     : ['http://localhost:5173','https://my-amz-mern-backend.onrender.com'];
 
+    console.log('Allowed Origins:', allowedOrigins);
+
 app.use(
     cors({
         origin: allowedOrigins,
