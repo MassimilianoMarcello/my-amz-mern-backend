@@ -2,7 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import helmet from 'helmet';
+
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -44,12 +44,7 @@ app.use(
     })
 );
 
-// use helmet
-app.use(
-    helmet({
-        contentSecurityPolicy: false,
-    })
-);
+
 
 // parses
 app.use(express.json());
