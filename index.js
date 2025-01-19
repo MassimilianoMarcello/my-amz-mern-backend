@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
+import path from 'path';
 
 // import db connection
 import connectToDB from './config/db.js';
@@ -58,6 +59,16 @@ app.use('/api', userRoutes);
 app.use('/api', itemRoutes);
 app.use('/api', productRoutes);
 app.use('/api', paymentRoutes);
+
+// Serve i file statici dalla cartella 'dist'
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Fallback per tutte le altre richieste (SPA)
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+});
+
+
 
 // handle 404
 app.use('*', (req, res) => {
